@@ -1,0 +1,243 @@
+body {
+    overflow-x: hidden;
+    background-color: #f7f7f7;
+    color: #707070;
+    font: 16px Camphor,Open Sans,Segoe UI,sans-serif;
+}
+
+.page-header {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 999999;
+    height: 70px;
+    padding: 0 0px;
+    transition: box-shadow .15s ease-in-out;
+    background: #2dc46a;
+}
+
+.page-header__inner {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+    margin-right: 20px;
+}
+
+.page_header__menu {
+    float: right;
+    display: inline;
+    margin: 250px 0 0;
+    padding: 0;
+    transition: all .15s ease-in-out;
+}
+
+.page-header__logo{
+    position: absolute;
+    left: 50px;
+    top: 20px;
+    text-decoration: None;
+    width: 110px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.page-header__menu__item {
+    display: inline;
+    font-size: 18px;
+    margin: 0;
+}
+
+.page-header__menu__item a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 400;
+    display: inline-block;
+    padding: 5px 0 6px;
+    margin: 0 15px;
+    transition: all .5ms ease;
+}
+
+.page-header__menu__item a:hover{
+    text-decoration: underline;
+}
+
+.page-main {
+    width: 100%;
+    position: absolute;
+    padding-top: 62px;
+    top: 0px;
+    left: 0px;
+}
+
+.page--hero {
+    background: #2dc46a;
+    color: #fff;
+    min-height: 170px;
+    border-radius: 0;
+    text-align: center;
+}
+
+.page--body {
+    display: block;
+    position: relative;
+    padding: 1px 30px 100px;
+}
+
+.page--hero .page-main__inner {
+    z-index: 999;
+}
+
+.page-main__inner {
+    width: 100%;
+    padding: 0 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page-title--hero {
+    color: #fff;
+}
+
+.page-title {
+    text-align: center;
+    padding: 5px 0 0;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.page-intro {
+    text-align: center;
+}
+
+p {
+    font-weight: 400;
+    line-height: 25px;
+}
+
+header {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.page--hero__background {
+    position: absolute;
+    z-index: 99;
+    bottom: -100px;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: #2dc46a;
+    transform: skewY(-6deg);
+}
+
+.page--how-it-works {
+    margin-top: -70px;
+    z-index: 9999;
+    padding-bottom: 40px;
+}
+
+.how-it-works {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.how-it-works__item {
+    position: relative;
+    display: inline-block;
+    width: 65%;
+    min-height: 100px;
+    margin: 0 0 25px;
+    padding: 10px 30px 25px 30px;
+    border-radius: 4px;
+}
+
+.page--box {
+    background: #fff;
+    box-shadow: 0 15px 35px rgb(50 50 93 / 10%), 0 5px 15px rgb(0 0 0 / 7%);
+}
+
+.form__element{
+    width: 100%;
+    min-height: 30px;
+}
+
+.element__name{
+    font-size: 18px;
+    color: black;
+}
+
+.input__value{
+    width: 98%;
+    height: 45px;
+    border: 2px solid orange;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+}
+
+.input__value:focus {
+    border: 2px solid #ad87ff;
+}
+
+input[type="text"], input[type="password"], textarea {
+    outline: none;
+}
+
+.button--hero {
+    margin: 30px 0 0;
+}
+
+.button--purple {
+    background: #626ccc;
+    color: #fff;
+    top: 0;
+    padding: 18px 20px 19px;
+}
+
+.button {
+    outline: none;
+    position: relative;
+    font-size: 18px;
+    display: inline-block;
+    min-width: 200px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgb(50 50 93 / 11%), 0 1px 3px rgb(0 0 0 / 8%);
+}
+
+.alert__message{
+    width: 40%;
+    height: 50px;
+    padding: 10px; 15px;
+    font-family: 'Montserrat';
+    font-size: 18px;
+    color: black;
+    background-color: #ed5f68;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    outline: 0;
+    border: 3px solid #959ef0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
