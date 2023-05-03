@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create a Professional Resume with CVMaker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main_styles.css') }}">
+</head>
+<body>
+    <header class="page-header">
+        <div class="page-header__inner">
+            <a href="{{ url_for('main_page') }}" class="page-header__logo" title="CVMaker">CVMaker</a>
+            <ul class="page-header__menu">
+                <li class="page-header__menu__item">
+                    <a href="#" title="Create Resume">Create Resume</a>
+                </li>
+                <li class="page-header__menu__item">
+                    <a href="#" title="Profile">Profile</a>
+                </li>
+                <li class="page-header__menu__item">
+                    <a href="#" title="CV templates">CV templates</a>
+                </li>
+            </ul>
+            {% if user.is_authenticated %}
+                <a href="{{ url_for('logout') }}" class="page-header__login" title="Log In">Log Out</a>
+            {% else %}
+                <a href="{{ url_for('login') }}" class="page-header__login" title="Log In">Log In</a>
+            {% endif %}
+        </div>
+    </header>
+    <main class="page-main">
+        <section class="page--body page--hero">
+            <div class="page-main__inner">
+                <header>
+                    <h1 class="page-title page-title--hero">Create your professional Resume with CV maker</h1>
+                    <p class="page-intro">Create your very own professional Resume and download it within 15 minutes.</p>
+                </header>
+                <p style="text-align: center">
+                    <a href="#" title="Create your very own professional Resume with our CV maker." class="button button--purple button--hero">
+                        Create your Resume
+                    </a>
+                </p>
+            </div>
+            <div class="page--hero__background"></div>
+        </section>
+        <section class="page--body page--how-it-works">
+            <div class="page-main__inner">
+                <ul class="how-it-works">
+                    <li class="how-it-works__item page--box" style="cursor: pointer">
+                        <i class="how-it-works__icon">
+                            <img src="https://www.cvmaker.com/assets/images/icons/rating.svg" alt>
+                        </i>
+                        <h2 class="how-it-works__title">Quick and easy resume builder</h2>
+                        <p>With our online CV maker, it is simple for anyone to quickly create a professional resume.
+                            Enter your personal details and begin filling out your resume content.
+                            Finally, choose one of our 36 available resume layouts, and download your resume.</p>
+                    </li>
+                    <li class="how-it-works__item page--box" style="cursor: pointer">
+                        <i class="how-it-works__icon">
+                            <img src="https://www.cvmaker.com/assets/images/icons/recruitment.svg" alt>
+                        </i>
+                        <h2 class="how-it-works__title">More likely to land a job</h2>
+                        <p>With a representative and professional resume, you will stand out amongst all other applicants.
+                            You are probably more likely to be invited to an interview with an professional Resume.</p>
+                    </li>
+                    <li class="how-it-works__item page--box" style="cursor: pointer">
+                        <i class="how-it-works__icon"><img src="https://www.cvmaker.com/assets/images/icons/profiles.svg" alt=""></i>
+                        <h2 class="how-it-works__title">Organize your applications</h2>
+                        <p>Often, it is important to be able to tailor your resume based on the job you wish to apply for.
+                            With CV maker, you can create and manage several different resumes in an organised way through
+                            your own personal account hub.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

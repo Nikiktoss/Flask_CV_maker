@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CVMaker | Login Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login_styles.css') }}">
+</head>
+<body>
+     <header class="page-header">
+        <div class="page-header__inner">
+            <a href="{{ url_for('main_page') }}" class="page-header__logo" title="CVMaker">CVMaker</a>
+            <ul class="page-header__menu">
+                <li class="page-header__menu__item">
+                    <a href="#" title="Create Resume">Create Resume</a>
+                </li>
+                <li class="page-header__menu__item">
+                    <a href="#" title="Profile">Profile</a>
+                </li>
+                <li class="page-header__menu__item">
+                    <a href="#" title="CV templates">CV templates</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+     <main class="page-main">
+         <section class="page--body page--hero">
+            <div class="page-main__inner">
+                <header>
+                    <h1 class="page-title page-title--hero">Log In</h1>
+                    <p class="page-intro">Enter your username and password to log in</p>
+                </header>
+            </div>
+            <div class="page--hero__background"></div>
+        </section>
+         <section class="page--body page--how-it-works">
+             {% for message in get_flashed_messages() %}
+                <div class="alert__message">
+                    {{ message }}
+                     <span class="closebtn" onclick="this.parentElement.style.display='none';" style="cursor: pointer">&times;</span>
+                </div>
+             {% endfor %}
+             <form action="/user/login" method="post" class="how-it-works">
+                 {{ form.hidden_tag() }}
+                 <div class="how-it-works__item page--box">
+                     <div class="form__element">
+                         <p>{{ form.username.label(class_='element__name') }}</p>
+                         {% if form.username.errors %}
+                            <p>Fuck</p>
+                         {% else %}
+                            {{ form.username(class_='input__value') }}
+                         {% endif %}
+                     </div>
+                     <div class="form__element">
+                         <p>{{ form.password.label(class_='element__name') }}</p>
+                         {{ form.password(class_='input__value') }}
+                     </div>
+                     <p style="font-size:18px; color:black">Don't have account? <a href="{{ url_for('register') }}">Create it</a></p>
+                 </div>
+                 <p style="text-align: center">
+                    {{ form.submit(class_="button button--purple button--hero") }}
+                </p>
+            </form>
+        </section>
+     </main>
+</body>
+</html>
