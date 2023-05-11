@@ -33,12 +33,23 @@
             <div class="page--hero__background"></div>
         </section>
          <section class="page--body page--how-it-works">
+             {% for message in get_flashed_messages() %}
+                <div class="alert__message">
+                    {{ message }}
+                     <span class="closebtn" onclick="this.parentElement.style.display='none';" style="cursor: pointer">&times;</span>
+                </div>
+             {% endfor %}
              <form action="{{ url_for('register') }}" method="post" class="how-it-works">
                  {{ form.hidden_tag() }}
                  <div class="how-it-works__item page--box">
                      {% for field in form if field.name not in ['csrf_token', 'submit'] -%}
                         {% if field.errors %}
-                            <p>Fuck...</p>
+                            {% for error in field.errors %}
+                                <div class="alert-danger">
+                                    <strong>{{ error }}</strong>
+                                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                                </div>
+                            {% endfor %}
                         {% endif %}
                          <div class="form__element">
                              <p>{{ field.label(class_='element__name') }}</p>
@@ -46,6 +57,7 @@
                          </div>
                      {% endfor %}
                      <p style="font-size:18px; color:black">Already have account? <a href="{{ url_for('login') }}">Log in</a></p>
+                     <p style="font-size:18px; color:black">Don't have strong password? <a href="#" onclick="Requirements()">See the requirements</a></p>
                  </div>
                  <p style="text-align: center">
                     {{ form.submit(class_="button button--purple button--hero") }}
@@ -53,5 +65,16 @@
             </form>
         </section>
      </main>
+
+<script>
+    function Requirements() {
+        alert(`A password is considered strong if:
+        8 characters length or more
+        1 digit or more
+        1 symbol or more
+        1 uppercase letter or more
+        1 lowercase letter or more`)
+    }
+</script>
 </body>
 </html>
