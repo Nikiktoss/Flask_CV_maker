@@ -1,5 +1,5 @@
 from flask import Flask, redirect, url_for, flash
-from flask import render_template, request
+from flask import render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, current_user, login_user, UserMixin, logout_user
 
@@ -90,26 +90,27 @@ def register():
         return redirect(url_for('main_page'))
 
     form = SignUpForm()
-    if request.method == "POST":
-        if form.validate_on_submit():
-            username = form.username.data
-            password = form.password.data
+    if form.validate_on_submit():
+        username = form.username.data
+        password = form.password.data
 
-            if Users.query.get(username):
-                return "User with such name already existed"
+        us = Users.query.filter_by(username=username).first()
+        if us is not None:
+            flash("User with such name already exists")
+            return redirect(url_for("register"))
 
-            user = Users()
-            user.username = username
-            user.set_password(password)
-            db.session.add(user)
-            db.session.commit()
+        user = Users()
+        user.username = username
+        user.set_password(password)
+        db.session.add(user)
+        db.session.commit()
 
-            profile = Profiles(username=username, user_id=user.id)
-            db.session.add(profile)
-            db.session.commit()
+        profile = Profiles(username=username, user_id=user.id)
+        db.session.add(profile)
+        db.session.commit()
 
-            login_user(user)
-            return redirect(url_for('main_page'))
+        login_user(user)
+        return redirect(url_for('main_page'))
 
     return render_template("register.html", form=form)
 
